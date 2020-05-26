@@ -1,0 +1,646 @@
+<html>
+<head><meta http-equiv=Content-Type content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+span.cls_002{font-family:Arial,serif;font-size:30.5px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+div.cls_002{font-family:Arial,serif;font-size:30.5px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+span.cls_003{font-family:Arial,serif;font-size:14.4px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+div.cls_003{font-family:Arial,serif;font-size:14.4px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+span.cls_004{font-family:Arial,serif;font-size:14.4px;color:rgb(0,0,0);font-weight:normal;font-style:italic;text-decoration: none}
+div.cls_004{font-family:Arial,serif;font-size:14.4px;color:rgb(0,0,0);font-weight:normal;font-style:italic;text-decoration: none}
+span.cls_005{font-family:Arial,serif;font-size:24.1px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+div.cls_005{font-family:Arial,serif;font-size:24.1px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+span.cls_006{font-family:Arial,serif;font-size:11.3px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+div.cls_006{font-family:Arial,serif;font-size:11.3px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+span.cls_007{font-family:Courier New,serif;font-size:10.5px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+div.cls_007{font-family:Courier New,serif;font-size:10.5px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+span.cls_008{font-family:Courier New,serif;font-size:10.5px;color:rgb(0,0,0);font-weight:normal;font-style:italic;text-decoration: none}
+div.cls_008{font-family:Courier New,serif;font-size:10.5px;color:rgb(0,0,0);font-weight:normal;font-style:italic;text-decoration: none}
+span.cls_009{font-family:Courier New,serif;font-size:10.5px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+div.cls_009{font-family:Courier New,serif;font-size:10.5px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+span.cls_010{font-family:Courier New,serif;font-size:10.1px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+div.cls_010{font-family:Courier New,serif;font-size:10.1px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+span.cls_011{font-family:Arial,serif;font-size:27.3px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+div.cls_011{font-family:Arial,serif;font-size:27.3px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+-->
+</style>
+<script type="text/javascript" src="a44ecc34-9efe-11ea-8b25-0cc47a792c0a_id_a44ecc34-9efe-11ea-8b25-0cc47a792c0a_files/wz_jsgraphics.js"></script>
+</head>
+<body>
+<div style="position:absolute;left:50%;margin-left:-420px;top:0px;width:841px;height:595px;border-style:outset;overflow:hidden">
+<div style="position:absolute;left:0px;top:0px">
+<img src="a44ecc34-9efe-11ea-8b25-0cc47a792c0a_id_a44ecc34-9efe-11ea-8b25-0cc47a792c0a_files/background01.jpg" width=841 height=595></div>
+<div style="position:absolute;left:56.41px;top:41.60px" class="cls_002"><span class="cls_002">Predictions using the Weight Lifting Exercises</span></div>
+<div style="position:absolute;left:56.41px;top:74.41px" class="cls_002"><span class="cls_002">Dataset</span></div>
+<div style="position:absolute;left:56.00px;top:115.60px" class="cls_003"><span class="cls_003">Ajith</span><span class="cls_004"> Mas</span><span class="cls_003">th</span><span class="cls_004">a</span><span class="cls_003">n</span></div>
+<div style="position:absolute;left:56.00px;top:138.60px" class="cls_004"><span class="cls_004">2</span><span class="cls_003">5</span><span class="cls_004"> May 2020</span></div>
+<div style="position:absolute;left:56.41px;top:169.64px" class="cls_005"><span class="cls_005">Executive Summary</span></div>
+<div style="position:absolute;left:56.41px;top:207.25px" class="cls_006"><span class="cls_006">Based on a dataset provide by HAR </span><A HREF="http://groupware.les.inf.puc-rio.br/har">http://groupware.les.inf.puc-rio.br/har (http://groupware.les.inf.puc-rio.br/har)</A> we will try to train a predictive</div>
+<div style="position:absolute;left:56.41px;top:223.25px" class="cls_006"><span class="cls_006">model to predict what exercise was performed using a dataset with 159 features</span></div>
+<div style="position:absolute;left:56.41px;top:247.26px" class="cls_006"><span class="cls_006">We’ll take the following steps:</span></div>
+<div style="position:absolute;left:88.42px;top:271.26px" class="cls_006"><span class="cls_006">Process the data, for use of this project</span></div>
+<div style="position:absolute;left:88.42px;top:287.27px" class="cls_006"><span class="cls_006">Explore the data, especially focussing on the two paramaters we are interested in</span></div>
+<div style="position:absolute;left:88.42px;top:303.27px" class="cls_006"><span class="cls_006">Model selection, where we try different models to help us answer our questions</span></div>
+<div style="position:absolute;left:88.42px;top:319.27px" class="cls_006"><span class="cls_006">Model examination, to see wether our best model holds up to our standards</span></div>
+<div style="position:absolute;left:88.42px;top:335.28px" class="cls_006"><span class="cls_006">A Conclusion where we answer the questions based on the data</span></div>
+<div style="position:absolute;left:88.42px;top:351.28px" class="cls_006"><span class="cls_006">Predicting the classification of the model on test set</span></div>
+<div style="position:absolute;left:56.41px;top:380.09px" class="cls_005"><span class="cls_005">Processing</span></div>
+<div style="position:absolute;left:56.41px;top:417.70px" class="cls_006"><span class="cls_006">First change ‘am’ to factor (0 = automatic, 1 = manual) And make cylinders a factor as well (since it is not continious)</span></div>
+<div style="position:absolute;left:64.81px;top:449.71px" class="cls_007"><span class="cls_007">training.raw &lt;- read.csv("pml-training.csv")</span></div>
+<div style="position:absolute;left:64.81px;top:464.11px" class="cls_007"><span class="cls_007">testing.raw &lt;- read.csv("pml-testing.csv")</span></div>
+<div style="position:absolute;left:56.41px;top:500.12px" class="cls_005"><span class="cls_005">Exploratory data analyses</span></div>
+<div style="position:absolute;left:56.41px;top:537.73px" class="cls_006"><span class="cls_006">Look at the dimensions & head of the dataset to get an idea</span></div>
+</div>
+<div style="position:absolute;left:50%;margin-left:-420px;top:605px;width:841px;height:595px;border-style:outset;overflow:hidden">
+<div style="position:absolute;left:0px;top:0px">
+<img src="a44ecc34-9efe-11ea-8b25-0cc47a792c0a_id_a44ecc34-9efe-11ea-8b25-0cc47a792c0a_files/background02.jpg" width=841 height=595></div>
+<div style="position:absolute;left:64.81px;top:36.80px" class="cls_008"><span class="cls_008"># Res 1</span></div>
+<div style="position:absolute;left:64.81px;top:51.21px" class="cls_007"><span class="cls_007">dim(training.raw)</span></div>
+<div style="position:absolute;left:64.81px;top:90.42px" class="cls_007"><span class="cls_007">## [1] 19622</span></div>
+<div style="position:absolute;left:158.45px;top:90.42px" class="cls_007"><span class="cls_007">160</span></div>
+<div style="position:absolute;left:64.81px;top:129.63px" class="cls_008"><span class="cls_008"># Res 2 - excluded because excessivness</span></div>
+<div style="position:absolute;left:64.81px;top:144.03px" class="cls_008"><span class="cls_008"># head(training.raw)</span></div>
+<div style="position:absolute;left:64.81px;top:172.84px" class="cls_008"><span class="cls_008"># Res 3 - excluded because excessivness</span></div>
+<div style="position:absolute;left:64.81px;top:187.24px" class="cls_008"><span class="cls_008">#str(training.raw)</span></div>
+<div style="position:absolute;left:64.81px;top:216.05px" class="cls_008"><span class="cls_008"># Res 4 - excluded because excessivness</span></div>
+<div style="position:absolute;left:64.81px;top:230.45px" class="cls_008"><span class="cls_008">#summary(training.raw)</span></div>
+<div style="position:absolute;left:56.41px;top:261.66px" class="cls_006"><span class="cls_006">What we see is a lot of data with NA / empty values. Let’s remove those</span></div>
+<div style="position:absolute;left:64.81px;top:293.67px" class="cls_007"><span class="cls_007">maxNAPerc = 20</span></div>
+<div style="position:absolute;left:64.81px;top:308.07px" class="cls_007"><span class="cls_007">maxNACount &lt;- nrow(training.raw) / 100 * maxNAPerc</span></div>
+<div style="position:absolute;left:64.81px;top:322.48px" class="cls_007"><span class="cls_007">removeColumns &lt;- which(colSums(is.na(training.raw) | training.raw=="") > maxNACount)</span></div>
+<div style="position:absolute;left:64.81px;top:336.88px" class="cls_007"><span class="cls_007">training.cleaned01 &lt;- training.raw[,-removeColumns]</span></div>
+<div style="position:absolute;left:64.81px;top:351.28px" class="cls_007"><span class="cls_007">testing.cleaned01 &lt;- testing.raw[,-removeColumns]</span></div>
+<div style="position:absolute;left:56.41px;top:382.49px" class="cls_006"><span class="cls_006">Also remove all time related data, since we won’t use those</span></div>
+<div style="position:absolute;left:64.81px;top:414.50px" class="cls_007"><span class="cls_007">removeColumns &lt;- grep("timestamp", names(training.cleaned01))</span></div>
+<div style="position:absolute;left:64.81px;top:428.90px" class="cls_007"><span class="cls_007">training.cleaned02 &lt;- training.cleaned01[,-c(1, removeColumns )]</span></div>
+<div style="position:absolute;left:64.81px;top:443.31px" class="cls_007"><span class="cls_007">testing.cleaned02 &lt;- testing.cleaned01[,-c(1, removeColumns )]</span></div>
+<div style="position:absolute;left:56.41px;top:474.51px" class="cls_006"><span class="cls_006">Then convert all factors to integers</span></div>
+</div>
+<div style="position:absolute;left:50%;margin-left:-420px;top:1210px;width:841px;height:595px;border-style:outset;overflow:hidden">
+<div style="position:absolute;left:0px;top:0px">
+<img src="a44ecc34-9efe-11ea-8b25-0cc47a792c0a_id_a44ecc34-9efe-11ea-8b25-0cc47a792c0a_files/background03.jpg" width=841 height=595></div>
+<div style="position:absolute;left:64.81px;top:36.80px" class="cls_007"><span class="cls_007">classeLevels &lt;- levels(training.cleaned02</span></div>
+<div style="position:absolute;left:320.72px;top:36.80px" class="cls_007"><span class="cls_007">$classe)</span></div>
+<div style="position:absolute;left:64.81px;top:51.21px" class="cls_007"><span class="cls_007">training.cleaned03 &lt;- data.frame(data.matrix(training.cleaned02))</span></div>
+<div style="position:absolute;left:64.81px;top:65.61px" class="cls_007"><span class="cls_007">training.cleaned03</span></div>
+<div style="position:absolute;left:177.18px;top:65.61px" class="cls_007"><span class="cls_007">$classe &lt;- factor(training.cleaned03</span></div>
+<div style="position:absolute;left:401.87px;top:65.61px" class="cls_007"><span class="cls_007">$classe, labels=classeLevels)</span></div>
+<div style="position:absolute;left:64.81px;top:80.01px" class="cls_007"><span class="cls_007">testing.cleaned03 &lt;- data.frame(data.matrix(testing.cleaned02))</span></div>
+<div style="position:absolute;left:56.41px;top:111.22px" class="cls_006"><span class="cls_006">Finally set the dataset to be explored</span></div>
+<div style="position:absolute;left:64.81px;top:143.23px" class="cls_007"><span class="cls_007">training.cleaned &lt;- training.cleaned03</span></div>
+<div style="position:absolute;left:64.81px;top:157.63px" class="cls_007"><span class="cls_007">testing.cleaned &lt;- testing.cleaned03</span></div>
+<div style="position:absolute;left:56.41px;top:193.64px" class="cls_005"><span class="cls_005">Exploratory data analyses</span></div>
+<div style="position:absolute;left:56.41px;top:231.25px" class="cls_006"><span class="cls_006">Since the test set provided is the the ultimate validation set, we will split the current training in a test and train set to work with.</span></div>
+<div style="position:absolute;left:64.81px;top:263.26px" class="cls_007"><span class="cls_007">set.seed(19791108)</span></div>
+<div style="position:absolute;left:64.81px;top:277.66px" class="cls_009"><span class="cls_009">library</span><span class="cls_007">(caret)</span></div>
+<div style="position:absolute;left:64.81px;top:306.47px" class="cls_007"><span class="cls_007">classeIndex &lt;- which(names(training.cleaned) == "classe")</span></div>
+<div style="position:absolute;left:64.81px;top:335.28px" class="cls_007"><span class="cls_007">partition &lt;- createDataPartition(y=training.cleaned$classe, p=0.75, list=FALSE)</span></div>
+<div style="position:absolute;left:64.81px;top:349.68px" class="cls_007"><span class="cls_007">training.subSetTrain &lt;- training.cleaned[partition, ]</span></div>
+<div style="position:absolute;left:64.81px;top:364.09px" class="cls_007"><span class="cls_007">training.subSetTest &lt;- training.cleaned[-partition, ]</span></div>
+<div style="position:absolute;left:56.41px;top:395.29px" class="cls_006"><span class="cls_006">What are some fields that have high correlations with the classe?</span></div>
+<div style="position:absolute;left:64.81px;top:427.30px" class="cls_007"><span class="cls_007">correlations &lt;- cor(training.subSetTrain[, -classeIndex], as.numeric(training.subSetTrain$classe))</span></div>
+<div style="position:absolute;left:64.81px;top:441.71px" class="cls_007"><span class="cls_007">bestCorrelations &lt;- subset(as.data.frame(as.table(correlations)), abs(Freq)>0.3)</span></div>
+<div style="position:absolute;left:64.81px;top:456.11px" class="cls_007"><span class="cls_007">bestCorrelations</span></div>
+<div style="position:absolute;left:64.81px;top:495.32px" class="cls_007"><span class="cls_007">##</span></div>
+<div style="position:absolute;left:158.45px;top:495.32px" class="cls_007"><span class="cls_007">Var1 Var2</span></div>
+<div style="position:absolute;left:252.09px;top:495.32px" class="cls_007"><span class="cls_007">Freq</span></div>
+<div style="position:absolute;left:64.81px;top:509.72px" class="cls_007"><span class="cls_007">## 27  magnet_arm_x    A 0.3023806</span></div>
+<div style="position:absolute;left:64.81px;top:524.13px" class="cls_007"><span class="cls_007">## 44 pitch_forearm    A 0.3475548</span></div>
+</div>
+<div style="position:absolute;left:50%;margin-left:-420px;top:1815px;width:841px;height:595px;border-style:outset;overflow:hidden">
+<div style="position:absolute;left:0px;top:0px">
+<img src="a44ecc34-9efe-11ea-8b25-0cc47a792c0a_id_a44ecc34-9efe-11ea-8b25-0cc47a792c0a_files/background04.jpg" width=841 height=595></div>
+<div style="position:absolute;left:56.41px;top:28.80px" class="cls_006"><span class="cls_006">Even the best correlations with classe are hardly above 0.3 Let’s check visually if there is indeed hard to use these 2 as possible simple linear</span></div>
+<div style="position:absolute;left:56.41px;top:44.80px" class="cls_006"><span class="cls_006">predictors.</span></div>
+<div style="position:absolute;left:64.81px;top:76.81px" class="cls_009"><span class="cls_009">library</span><span class="cls_007">(Rmisc)</span></div>
+<div style="position:absolute;left:64.81px;top:91.22px" class="cls_009"><span class="cls_009">library</span><span class="cls_007">(ggplot2)</span></div>
+<div style="position:absolute;left:64.81px;top:120.02px" class="cls_007"><span class="cls_007">p1 &lt;- ggplot(training.subSetTrain, aes(classe,pitch_forearm)) +</span></div>
+<div style="position:absolute;left:77.29px;top:134.43px" class="cls_007"><span class="cls_007">geom_boxplot(aes(fill=classe))</span></div>
+<div style="position:absolute;left:64.81px;top:163.23px" class="cls_007"><span class="cls_007">p2 &lt;- ggplot(training.subSetTrain, aes(classe, magnet_arm_x)) +</span></div>
+<div style="position:absolute;left:77.29px;top:177.64px" class="cls_007"><span class="cls_007">geom_boxplot(aes(fill=classe))</span></div>
+<div style="position:absolute;left:64.81px;top:206.45px" class="cls_007"><span class="cls_007">multiplot(p1,p2,cols=2)</span></div>
+</div>
+<div style="position:absolute;left:50%;margin-left:-420px;top:2420px;width:841px;height:595px;border-style:outset;overflow:hidden">
+<div style="position:absolute;left:0px;top:0px">
+<img src="a44ecc34-9efe-11ea-8b25-0cc47a792c0a_id_a44ecc34-9efe-11ea-8b25-0cc47a792c0a_files/background05.jpg" width=841 height=595></div>
+<div style="position:absolute;left:56.41px;top:400.90px" class="cls_006"><span class="cls_006">Clearly there is no hard seperation of classes possible using only these ‘highly’ correlated features. Let’s train some models to get closer to a way</span></div>
+<div style="position:absolute;left:56.41px;top:416.90px" class="cls_006"><span class="cls_006">of predicting these classe’s</span></div>
+<div style="position:absolute;left:56.41px;top:445.71px" class="cls_005"><span class="cls_005">Model selection</span></div>
+<div style="position:absolute;left:56.41px;top:483.32px" class="cls_006"><span class="cls_006">Let’s identify variables with high correlations amongst each other in our set, so we can possibly exclude them from the pca or training.</span></div>
+<div style="position:absolute;left:56.41px;top:507.32px" class="cls_006"><span class="cls_006">We will check afterwards if these modifications to the dataset make the model more accurate (and perhaps even faster)</span></div>
+</div>
+<div style="position:absolute;left:50%;margin-left:-420px;top:3025px;width:841px;height:595px;border-style:outset;overflow:hidden">
+<div style="position:absolute;left:0px;top:0px">
+<img src="a44ecc34-9efe-11ea-8b25-0cc47a792c0a_id_a44ecc34-9efe-11ea-8b25-0cc47a792c0a_files/background06.jpg" width=841 height=595></div>
+<div style="position:absolute;left:64.81px;top:36.80px" class="cls_009"><span class="cls_009">library</span><span class="cls_007">(corrplot)</span></div>
+<div style="position:absolute;left:64.81px;top:51.21px" class="cls_007"><span class="cls_007">correlationMatrix &lt;- cor(training.subSetTrain[, -classeIndex])</span></div>
+<div style="position:absolute;left:64.81px;top:65.61px" class="cls_007"><span class="cls_007">highlyCorrelated &lt;- findCorrelation(correlationMatrix, cutoff=0.9, exact=TRUE)</span></div>
+<div style="position:absolute;left:64.81px;top:80.01px" class="cls_007"><span class="cls_007">excludeColumns &lt;- c(highlyCorrelated, classeIndex)</span></div>
+<div style="position:absolute;left:64.81px;top:94.42px" class="cls_007"><span class="cls_007">corrplot(correlationMatrix, method="color", type="lower", order="hclust", tl.cex=0.70, tl.col="black", tl.srt = 4</span></div>
+<div style="position:absolute;left:64.81px;top:108.82px" class="cls_007"><span class="cls_007">5, diag = FALSE)</span></div>
+<div style="position:absolute;left:56.41px;top:512.12px" class="cls_006"><span class="cls_006">We see that there are some features that aree quite correlated with each other. We will have a model with these excluded. Also we’ll try and</span></div>
+<div style="position:absolute;left:56.41px;top:528.13px" class="cls_006"><span class="cls_006">reduce the features by running PCA on all and the excluded subset of the features</span></div>
+</div>
+<div style="position:absolute;left:50%;margin-left:-420px;top:3630px;width:841px;height:595px;border-style:outset;overflow:hidden">
+<div style="position:absolute;left:0px;top:0px">
+<img src="a44ecc34-9efe-11ea-8b25-0cc47a792c0a_id_a44ecc34-9efe-11ea-8b25-0cc47a792c0a_files/background07.jpg" width=841 height=595></div>
+<div style="position:absolute;left:64.81px;top:36.80px" class="cls_007"><span class="cls_007">pcaPreProcess.all &lt;- preProcess(training.subSetTrain[, -classeIndex], method = "pca", thresh = 0.99)</span></div>
+<div style="position:absolute;left:64.81px;top:51.21px" class="cls_007"><span class="cls_007">training.subSetTrain.pca.all &lt;- predict(pcaPreProcess.all, training.subSetTrain[, -classeIndex])</span></div>
+<div style="position:absolute;left:64.81px;top:65.61px" class="cls_007"><span class="cls_007">training.subSetTest.pca.all &lt;- predict(pcaPreProcess.all, training.subSetTest[, -classeIndex])</span></div>
+<div style="position:absolute;left:64.81px;top:80.01px" class="cls_007"><span class="cls_007">testing.pca.all &lt;- predict(pcaPreProcess.all, testing.cleaned[, -classeIndex])</span></div>
+<div style="position:absolute;left:64.81px;top:123.22px" class="cls_007"><span class="cls_007">pcaPreProcess.subset &lt;- preProcess(training.subSetTrain[, -excludeColumns], method = "pca", thresh = 0.99)</span></div>
+<div style="position:absolute;left:64.81px;top:137.63px" class="cls_007"><span class="cls_007">training.subSetTrain.pca.subset &lt;- predict(pcaPreProcess.subset, training.subSetTrain[, -excludeColumns])</span></div>
+<div style="position:absolute;left:64.81px;top:152.03px" class="cls_007"><span class="cls_007">training.subSetTest.pca.subset &lt;- predict(pcaPreProcess.subset, training.subSetTest[, -excludeColumns])</span></div>
+<div style="position:absolute;left:64.81px;top:166.44px" class="cls_007"><span class="cls_007">testing.pca.subset &lt;- predict(pcaPreProcess.subset, testing.cleaned[, -classeIndex])</span></div>
+<div style="position:absolute;left:56.41px;top:197.64px" class="cls_006"><span class="cls_006">Now we’ll do some actual Random Forest training. We’ll use 200 trees, because I’ve already seen that the error rate doesn’t decline a lot after say</span></div>
+<div style="position:absolute;left:56.41px;top:213.65px" class="cls_006"><span class="cls_006">50 trees, but we still want to be thorough. Also we will time each of the 4 random forest models to see if when all else is equal one pops out as</span></div>
+<div style="position:absolute;left:56.41px;top:229.65px" class="cls_006"><span class="cls_006">the faster one.</span></div>
+<div style="position:absolute;left:64.81px;top:261.66px" class="cls_009"><span class="cls_009">library</span><span class="cls_007">(randomForest)</span></div>
+<div style="position:absolute;left:64.81px;top:290.47px" class="cls_007"><span class="cls_007">ntree &lt;- 200 </span><span class="cls_008">#This is enough for great accuracy (trust me, I'm an engineer).</span></div>
+<div style="position:absolute;left:64.81px;top:319.27px" class="cls_007"><span class="cls_007">start &lt;- proc.time()</span></div>
+<div style="position:absolute;left:64.81px;top:333.68px" class="cls_007"><span class="cls_007">rfMod.cleaned &lt;- randomForest(</span></div>
+<div style="position:absolute;left:77.29px;top:348.08px" class="cls_007"><span class="cls_007">x=training.subSetTrain[, -classeIndex],</span></div>
+<div style="position:absolute;left:77.29px;top:362.49px" class="cls_007"><span class="cls_007">y=training.subSetTrain$classe,</span></div>
+<div style="position:absolute;left:77.29px;top:376.89px" class="cls_007"><span class="cls_007">xtest=training.subSetTest[, -classeIndex],</span></div>
+<div style="position:absolute;left:77.29px;top:391.29px" class="cls_007"><span class="cls_007">ytest=training.subSetTest$classe,</span></div>
+<div style="position:absolute;left:77.29px;top:405.70px" class="cls_007"><span class="cls_007">ntree=ntree,</span></div>
+<div style="position:absolute;left:77.29px;top:420.10px" class="cls_007"><span class="cls_007">keep.forest=TRUE,</span></div>
+<div style="position:absolute;left:77.29px;top:434.50px" class="cls_007"><span class="cls_007">proximity=TRUE) </span><span class="cls_008">#do.trace=TRUE</span></div>
+<div style="position:absolute;left:64.81px;top:448.91px" class="cls_007"><span class="cls_007">proc.time() - start</span></div>
+<div style="position:absolute;left:64.81px;top:488.12px" class="cls_007"><span class="cls_007">##    user  system elapsed</span></div>
+<div style="position:absolute;left:64.81px;top:502.52px" class="cls_007"><span class="cls_007">## 123.664</span></div>
+<div style="position:absolute;left:145.96px;top:502.52px" class="cls_007"><span class="cls_007">6.228 132.399</span></div>
+</div>
+<div style="position:absolute;left:50%;margin-left:-420px;top:4235px;width:841px;height:595px;border-style:outset;overflow:hidden">
+<div style="position:absolute;left:0px;top:0px">
+<img src="a44ecc34-9efe-11ea-8b25-0cc47a792c0a_id_a44ecc34-9efe-11ea-8b25-0cc47a792c0a_files/background08.jpg" width=841 height=595></div>
+<div style="position:absolute;left:64.81px;top:36.80px" class="cls_007"><span class="cls_007">start &lt;- proc.time()</span></div>
+<div style="position:absolute;left:64.81px;top:51.21px" class="cls_007"><span class="cls_007">rfMod.exclude &lt;- randomForest(</span></div>
+<div style="position:absolute;left:77.29px;top:65.61px" class="cls_007"><span class="cls_007">x=training.subSetTrain[, -excludeColumns],</span></div>
+<div style="position:absolute;left:77.29px;top:80.01px" class="cls_007"><span class="cls_007">y=training.subSetTrain$classe,</span></div>
+<div style="position:absolute;left:77.29px;top:94.42px" class="cls_007"><span class="cls_007">xtest=training.subSetTest[, -excludeColumns],</span></div>
+<div style="position:absolute;left:77.29px;top:108.82px" class="cls_007"><span class="cls_007">ytest=training.subSetTest$classe,</span></div>
+<div style="position:absolute;left:77.29px;top:123.22px" class="cls_007"><span class="cls_007">ntree=ntree,</span></div>
+<div style="position:absolute;left:77.29px;top:137.63px" class="cls_007"><span class="cls_007">keep.forest=TRUE,</span></div>
+<div style="position:absolute;left:77.29px;top:152.03px" class="cls_007"><span class="cls_007">proximity=TRUE) </span><span class="cls_008">#do.trace=TRUE</span></div>
+<div style="position:absolute;left:64.81px;top:166.44px" class="cls_007"><span class="cls_007">proc.time() - start</span></div>
+<div style="position:absolute;left:64.81px;top:205.65px" class="cls_007"><span class="cls_007">##    user  system elapsed</span></div>
+<div style="position:absolute;left:64.81px;top:220.05px" class="cls_007"><span class="cls_007">## 116.568</span></div>
+<div style="position:absolute;left:145.96px;top:220.05px" class="cls_007"><span class="cls_007">4.162</span></div>
+<div style="position:absolute;left:183.42px;top:220.05px" class="cls_007"><span class="cls_007">121.669</span></div>
+<div style="position:absolute;left:64.81px;top:259.26px" class="cls_007"><span class="cls_007">start &lt;- proc.time()</span></div>
+<div style="position:absolute;left:64.81px;top:273.66px" class="cls_007"><span class="cls_007">rfMod.pca.all &lt;- randomForest(</span></div>
+<div style="position:absolute;left:77.29px;top:288.07px" class="cls_007"><span class="cls_007">x=training.subSetTrain.pca.all,</span></div>
+<div style="position:absolute;left:77.29px;top:302.47px" class="cls_007"><span class="cls_007">y=training.subSetTrain$classe,</span></div>
+<div style="position:absolute;left:77.29px;top:316.87px" class="cls_007"><span class="cls_007">xtest=training.subSetTest.pca.all,</span></div>
+<div style="position:absolute;left:77.29px;top:331.28px" class="cls_007"><span class="cls_007">ytest=training.subSetTest$classe,</span></div>
+<div style="position:absolute;left:77.29px;top:345.68px" class="cls_007"><span class="cls_007">ntree=ntree,</span></div>
+<div style="position:absolute;left:77.29px;top:360.08px" class="cls_007"><span class="cls_007">keep.forest=TRUE,</span></div>
+<div style="position:absolute;left:77.29px;top:374.49px" class="cls_007"><span class="cls_007">proximity=TRUE) </span><span class="cls_008">#do.trace=TRUE</span></div>
+<div style="position:absolute;left:64.81px;top:388.89px" class="cls_007"><span class="cls_007">proc.time() - start</span></div>
+<div style="position:absolute;left:64.81px;top:428.10px" class="cls_007"><span class="cls_007">##    user  system elapsed</span></div>
+<div style="position:absolute;left:64.81px;top:442.51px" class="cls_007"><span class="cls_007">## 111.267</span></div>
+<div style="position:absolute;left:145.96px;top:442.51px" class="cls_007"><span class="cls_007">4.004 115.881</span></div>
+</div>
+<div style="position:absolute;left:50%;margin-left:-420px;top:4840px;width:841px;height:595px;border-style:outset;overflow:hidden">
+<div style="position:absolute;left:0px;top:0px">
+<img src="a44ecc34-9efe-11ea-8b25-0cc47a792c0a_id_a44ecc34-9efe-11ea-8b25-0cc47a792c0a_files/background09.jpg" width=841 height=595></div>
+<div style="position:absolute;left:64.81px;top:36.80px" class="cls_007"><span class="cls_007">start &lt;- proc.time()</span></div>
+<div style="position:absolute;left:64.81px;top:51.21px" class="cls_007"><span class="cls_007">rfMod.pca.subset &lt;- randomForest(</span></div>
+<div style="position:absolute;left:77.29px;top:65.61px" class="cls_007"><span class="cls_007">x=training.subSetTrain.pca.subset,</span></div>
+<div style="position:absolute;left:77.29px;top:80.01px" class="cls_007"><span class="cls_007">y=training.subSetTrain$classe,</span></div>
+<div style="position:absolute;left:77.29px;top:94.42px" class="cls_007"><span class="cls_007">xtest=training.subSetTest.pca.subset,</span></div>
+<div style="position:absolute;left:77.29px;top:108.82px" class="cls_007"><span class="cls_007">ytest=training.subSetTest$classe,</span></div>
+<div style="position:absolute;left:77.29px;top:123.22px" class="cls_007"><span class="cls_007">ntree=ntree,</span></div>
+<div style="position:absolute;left:77.29px;top:137.63px" class="cls_007"><span class="cls_007">keep.forest=TRUE,</span></div>
+<div style="position:absolute;left:77.29px;top:152.03px" class="cls_007"><span class="cls_007">proximity=TRUE) </span><span class="cls_008">#do.trace=TRUE</span></div>
+<div style="position:absolute;left:64.81px;top:166.44px" class="cls_007"><span class="cls_007">proc.time() - start</span></div>
+<div style="position:absolute;left:64.81px;top:205.65px" class="cls_007"><span class="cls_007">##    user  system elapsed</span></div>
+<div style="position:absolute;left:64.81px;top:220.05px" class="cls_007"><span class="cls_007">## 120.846</span></div>
+<div style="position:absolute;left:145.96px;top:220.05px" class="cls_007"><span class="cls_007">7.504</span></div>
+<div style="position:absolute;left:183.42px;top:220.05px" class="cls_007"><span class="cls_007">138.427</span></div>
+<div style="position:absolute;left:56.41px;top:256.06px" class="cls_005"><span class="cls_005">Model examination</span></div>
+<div style="position:absolute;left:56.41px;top:293.67px" class="cls_006"><span class="cls_006">Now that we have 4 trained models, we will check the accuracies of each. (There probably is a better way, but this still works good)</span></div>
+<div style="position:absolute;left:64.81px;top:325.68px" class="cls_007"><span class="cls_007">rfMod.cleaned</span></div>
+</div>
+<div style="position:absolute;left:50%;margin-left:-420px;top:5445px;width:841px;height:595px;border-style:outset;overflow:hidden">
+<div style="position:absolute;left:0px;top:0px">
+<img src="a44ecc34-9efe-11ea-8b25-0cc47a792c0a_id_a44ecc34-9efe-11ea-8b25-0cc47a792c0a_files/background10.jpg" width=841 height=595></div>
+<div style="position:absolute;left:64.81px;top:36.80px" class="cls_007"><span class="cls_007">##</span></div>
+<div style="position:absolute;left:64.81px;top:51.21px" class="cls_007"><span class="cls_007">## Call:</span></div>
+<div style="position:absolute;left:64.81px;top:65.61px" class="cls_007"><span class="cls_007">##  randomForest(x = training.subSetTrain[, -classeIndex], y = training.subSetTrain$classe,</span></div>
+<div style="position:absolute;left:670.34px;top:65.61px" class="cls_007"><span class="cls_007">xtest = trainin</span></div>
+<div style="position:absolute;left:64.81px;top:80.01px" class="cls_007"><span class="cls_007">g.subSetTest[, -classeIndex], ytest = training.subSetTest$classe,</span></div>
+<div style="position:absolute;left:508.03px;top:80.01px" class="cls_007"><span class="cls_007">ntree = ntree, proximity = TRUE, keep.fore</span></div>
+<div style="position:absolute;left:64.81px;top:94.42px" class="cls_007"><span class="cls_007">st = TRUE)</span></div>
+<div style="position:absolute;left:64.81px;top:108.82px" class="cls_007"><span class="cls_007">##</span></div>
+<div style="position:absolute;left:177.18px;top:108.82px" class="cls_007"><span class="cls_007">Type of random forest: classification</span></div>
+<div style="position:absolute;left:64.81px;top:123.22px" class="cls_007"><span class="cls_007">##</span></div>
+<div style="position:absolute;left:214.63px;top:123.22px" class="cls_007"><span class="cls_007">Number of trees: 200</span></div>
+<div style="position:absolute;left:64.81px;top:137.63px" class="cls_007"><span class="cls_007">## No. of variables tried at each split: 7</span></div>
+<div style="position:absolute;left:64.81px;top:152.03px" class="cls_007"><span class="cls_007">##</span></div>
+<div style="position:absolute;left:64.81px;top:166.44px" class="cls_007"><span class="cls_007">##</span></div>
+<div style="position:absolute;left:133.48px;top:166.44px" class="cls_007"><span class="cls_007">OOB estimate of  error rate: 0.27%</span></div>
+<div style="position:absolute;left:64.81px;top:180.84px" class="cls_007"><span class="cls_007">## Confusion matrix:</span></div>
+<div style="position:absolute;left:64.81px;top:195.24px" class="cls_007"><span class="cls_007">##</span></div>
+<div style="position:absolute;left:114.75px;top:195.24px" class="cls_007"><span class="cls_007">A    B    C    D    E class.error</span></div>
+<div style="position:absolute;left:64.81px;top:209.65px" class="cls_007"><span class="cls_007">## A 4185</span></div>
+<div style="position:absolute;left:145.96px;top:209.65px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:177.18px;top:209.65px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:208.39px;top:209.65px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:239.60px;top:209.65px" class="cls_007"><span class="cls_007">0 0.000000000</span></div>
+<div style="position:absolute;left:64.81px;top:224.05px" class="cls_007"><span class="cls_007">## B</span></div>
+<div style="position:absolute;left:114.75px;top:224.05px" class="cls_007"><span class="cls_007">7 2839</span></div>
+<div style="position:absolute;left:177.18px;top:224.05px" class="cls_007"><span class="cls_007">2</span></div>
+<div style="position:absolute;left:208.39px;top:224.05px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:239.60px;top:224.05px" class="cls_007"><span class="cls_007">0 0.003160112</span></div>
+<div style="position:absolute;left:64.81px;top:238.45px" class="cls_007"><span class="cls_007">## C</span></div>
+<div style="position:absolute;left:114.75px;top:238.45px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:145.96px;top:238.45px" class="cls_007"><span class="cls_007">8 2558</span></div>
+<div style="position:absolute;left:208.39px;top:238.45px" class="cls_007"><span class="cls_007">1</span></div>
+<div style="position:absolute;left:239.60px;top:238.45px" class="cls_007"><span class="cls_007">0 0.003506038</span></div>
+<div style="position:absolute;left:64.81px;top:252.86px" class="cls_007"><span class="cls_007">## D</span></div>
+<div style="position:absolute;left:114.75px;top:252.86px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:145.96px;top:252.86px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:170.93px;top:252.86px" class="cls_007"><span class="cls_007">16 2396</span></div>
+<div style="position:absolute;left:239.60px;top:252.86px" class="cls_007"><span class="cls_007">0 0.006633499</span></div>
+<div style="position:absolute;left:64.81px;top:267.26px" class="cls_007"><span class="cls_007">## E</span></div>
+<div style="position:absolute;left:114.75px;top:267.26px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:145.96px;top:267.26px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:177.18px;top:267.26px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:208.39px;top:267.26px" class="cls_007"><span class="cls_007">6 2700 0.002217295</span></div>
+<div style="position:absolute;left:64.81px;top:281.66px" class="cls_007"><span class="cls_007">##</span></div>
+<div style="position:absolute;left:183.42px;top:281.66px" class="cls_007"><span class="cls_007">Test set error rate: 0.29%</span></div>
+<div style="position:absolute;left:64.81px;top:296.07px" class="cls_007"><span class="cls_007">## Confusion matrix:</span></div>
+<div style="position:absolute;left:64.81px;top:310.47px" class="cls_007"><span class="cls_007">##</span></div>
+<div style="position:absolute;left:114.75px;top:310.47px" class="cls_007"><span class="cls_007">A   B   C   D   E  class.error</span></div>
+<div style="position:absolute;left:64.81px;top:324.88px" class="cls_007"><span class="cls_007">## A 1394</span></div>
+<div style="position:absolute;left:139.72px;top:324.88px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:164.69px;top:324.88px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:189.66px;top:324.88px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:214.63px;top:324.88px" class="cls_007"><span class="cls_007">1 0.0007168459</span></div>
+<div style="position:absolute;left:64.81px;top:339.28px" class="cls_007"><span class="cls_007">## B</span></div>
+<div style="position:absolute;left:114.75px;top:339.28px" class="cls_007"><span class="cls_007">0 949</span></div>
+<div style="position:absolute;left:164.69px;top:339.28px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:189.66px;top:339.28px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:214.63px;top:339.28px" class="cls_007"><span class="cls_007">0 0.0000000000</span></div>
+<div style="position:absolute;left:64.81px;top:353.68px" class="cls_007"><span class="cls_007">## C</span></div>
+<div style="position:absolute;left:114.75px;top:353.68px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:139.72px;top:353.68px" class="cls_007"><span class="cls_007">8 847</span></div>
+<div style="position:absolute;left:189.66px;top:353.68px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:214.63px;top:353.68px" class="cls_007"><span class="cls_007">0 0.0093567251</span></div>
+<div style="position:absolute;left:64.81px;top:368.09px" class="cls_007"><span class="cls_007">## D</span></div>
+<div style="position:absolute;left:114.75px;top:368.09px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:139.72px;top:368.09px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:164.69px;top:368.09px" class="cls_007"><span class="cls_007">2 801</span></div>
+<div style="position:absolute;left:214.63px;top:368.09px" class="cls_007"><span class="cls_007">1 0.0037313433</span></div>
+<div style="position:absolute;left:64.81px;top:382.49px" class="cls_007"><span class="cls_007">## E</span></div>
+<div style="position:absolute;left:114.75px;top:382.49px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:139.72px;top:382.49px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:164.69px;top:382.49px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:189.66px;top:382.49px" class="cls_007"><span class="cls_007">2 899 0.0022197558</span></div>
+<div style="position:absolute;left:64.81px;top:421.70px" class="cls_007"><span class="cls_007">rfMod.cleaned.training.acc &lt;- round(1-sum(rfMod.cleaned$confusion[, 'class.error']),3)</span></div>
+<div style="position:absolute;left:64.81px;top:436.10px" class="cls_007"><span class="cls_007">paste0("Accuracy on training: ",rfMod.cleaned.training.acc)</span></div>
+<div style="position:absolute;left:64.81px;top:475.31px" class="cls_007"><span class="cls_007">## [1] "Accuracy on training: 0.984"</span></div>
+<div style="position:absolute;left:64.81px;top:514.52px" class="cls_007"><span class="cls_007">rfMod.cleaned.testing.acc &lt;- round(1-sum(rfMod.cleaned$test$confusion[, 'class.error']),3)</span></div>
+<div style="position:absolute;left:64.81px;top:528.93px" class="cls_007"><span class="cls_007">paste0("Accuracy on testing: ",rfMod.cleaned.testing.acc)</span></div>
+</div>
+<div style="position:absolute;left:50%;margin-left:-420px;top:6050px;width:841px;height:595px;border-style:outset;overflow:hidden">
+<div style="position:absolute;left:0px;top:0px">
+<img src="a44ecc34-9efe-11ea-8b25-0cc47a792c0a_id_a44ecc34-9efe-11ea-8b25-0cc47a792c0a_files/background11.jpg" width=841 height=595></div>
+<div style="position:absolute;left:64.81px;top:36.80px" class="cls_007"><span class="cls_007">## [1] "Accuracy on testing: 0.984"</span></div>
+<div style="position:absolute;left:64.81px;top:76.01px" class="cls_007"><span class="cls_007">rfMod.exclude</span></div>
+<div style="position:absolute;left:64.81px;top:115.22px" class="cls_007"><span class="cls_007">##</span></div>
+<div style="position:absolute;left:64.81px;top:129.63px" class="cls_007"><span class="cls_007">## Call:</span></div>
+<div style="position:absolute;left:64.81px;top:144.03px" class="cls_007"><span class="cls_007">##  randomForest(x = training.subSetTrain[, -excludeColumns], y = training.subSetTrain$classe,</span></div>
+<div style="position:absolute;left:689.07px;top:144.03px" class="cls_007"><span class="cls_007">xtest = train</span></div>
+<div style="position:absolute;left:64.81px;top:158.43px" class="cls_007"><span class="cls_007">ing.subSetTest[, -excludeColumns], ytest = training.subSetTest$classe,</span></div>
+<div style="position:absolute;left:539.25px;top:158.43px" class="cls_007"><span class="cls_007">ntree = ntree, proximity = TRUE, kee</span></div>
+<div style="position:absolute;left:64.81px;top:172.84px" class="cls_007"><span class="cls_007">p.forest = TRUE)</span></div>
+<div style="position:absolute;left:64.81px;top:187.24px" class="cls_007"><span class="cls_007">##</span></div>
+<div style="position:absolute;left:177.18px;top:187.24px" class="cls_007"><span class="cls_007">Type of random forest: classification</span></div>
+<div style="position:absolute;left:64.81px;top:201.64px" class="cls_007"><span class="cls_007">##</span></div>
+<div style="position:absolute;left:214.63px;top:201.64px" class="cls_007"><span class="cls_007">Number of trees: 200</span></div>
+<div style="position:absolute;left:64.81px;top:216.05px" class="cls_007"><span class="cls_007">## No. of variables tried at each split: 7</span></div>
+<div style="position:absolute;left:64.81px;top:230.45px" class="cls_007"><span class="cls_007">##</span></div>
+<div style="position:absolute;left:64.81px;top:244.86px" class="cls_007"><span class="cls_007">##</span></div>
+<div style="position:absolute;left:133.48px;top:244.86px" class="cls_007"><span class="cls_007">OOB estimate of  error rate: 0.23%</span></div>
+<div style="position:absolute;left:64.81px;top:259.26px" class="cls_007"><span class="cls_007">## Confusion matrix:</span></div>
+<div style="position:absolute;left:64.81px;top:273.66px" class="cls_007"><span class="cls_007">##</span></div>
+<div style="position:absolute;left:114.75px;top:273.66px" class="cls_007"><span class="cls_007">A    B    C    D    E class.error</span></div>
+<div style="position:absolute;left:64.81px;top:288.07px" class="cls_007"><span class="cls_007">## A 4185</span></div>
+<div style="position:absolute;left:145.96px;top:288.07px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:177.18px;top:288.07px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:208.39px;top:288.07px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:239.60px;top:288.07px" class="cls_007"><span class="cls_007">0 0.000000000</span></div>
+<div style="position:absolute;left:64.81px;top:302.47px" class="cls_007"><span class="cls_007">## B</span></div>
+<div style="position:absolute;left:114.75px;top:302.47px" class="cls_007"><span class="cls_007">4 2842</span></div>
+<div style="position:absolute;left:177.18px;top:302.47px" class="cls_007"><span class="cls_007">2</span></div>
+<div style="position:absolute;left:208.39px;top:302.47px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:239.60px;top:302.47px" class="cls_007"><span class="cls_007">0 0.002106742</span></div>
+<div style="position:absolute;left:64.81px;top:316.87px" class="cls_007"><span class="cls_007">## C</span></div>
+<div style="position:absolute;left:114.75px;top:316.87px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:145.96px;top:316.87px" class="cls_007"><span class="cls_007">9 2558</span></div>
+<div style="position:absolute;left:208.39px;top:316.87px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:239.60px;top:316.87px" class="cls_007"><span class="cls_007">0 0.003506038</span></div>
+<div style="position:absolute;left:64.81px;top:331.28px" class="cls_007"><span class="cls_007">## D</span></div>
+<div style="position:absolute;left:114.75px;top:331.28px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:145.96px;top:331.28px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:170.93px;top:331.28px" class="cls_007"><span class="cls_007">13 2398</span></div>
+<div style="position:absolute;left:239.60px;top:331.28px" class="cls_007"><span class="cls_007">1 0.005804312</span></div>
+<div style="position:absolute;left:64.81px;top:345.68px" class="cls_007"><span class="cls_007">## E</span></div>
+<div style="position:absolute;left:114.75px;top:345.68px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:145.96px;top:345.68px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:177.18px;top:345.68px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:208.39px;top:345.68px" class="cls_007"><span class="cls_007">5 2701 0.001847746</span></div>
+<div style="position:absolute;left:64.81px;top:360.08px" class="cls_007"><span class="cls_007">##</span></div>
+<div style="position:absolute;left:183.42px;top:360.08px" class="cls_007"><span class="cls_007">Test set error rate: 0.29%</span></div>
+<div style="position:absolute;left:64.81px;top:374.49px" class="cls_007"><span class="cls_007">## Confusion matrix:</span></div>
+<div style="position:absolute;left:64.81px;top:388.89px" class="cls_007"><span class="cls_007">##</span></div>
+<div style="position:absolute;left:114.75px;top:388.89px" class="cls_007"><span class="cls_007">A   B   C   D   E  class.error</span></div>
+<div style="position:absolute;left:64.81px;top:403.30px" class="cls_007"><span class="cls_007">## A 1394</span></div>
+<div style="position:absolute;left:139.72px;top:403.30px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:164.69px;top:403.30px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:189.66px;top:403.30px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:214.63px;top:403.30px" class="cls_007"><span class="cls_007">1 0.0007168459</span></div>
+<div style="position:absolute;left:64.81px;top:417.70px" class="cls_007"><span class="cls_007">## B</span></div>
+<div style="position:absolute;left:114.75px;top:417.70px" class="cls_007"><span class="cls_007">1 948</span></div>
+<div style="position:absolute;left:164.69px;top:417.70px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:189.66px;top:417.70px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:214.63px;top:417.70px" class="cls_007"><span class="cls_007">0 0.0010537408</span></div>
+<div style="position:absolute;left:64.81px;top:432.10px" class="cls_007"><span class="cls_007">## C</span></div>
+<div style="position:absolute;left:114.75px;top:432.10px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:139.72px;top:432.10px" class="cls_007"><span class="cls_007">8 847</span></div>
+<div style="position:absolute;left:189.66px;top:432.10px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:214.63px;top:432.10px" class="cls_007"><span class="cls_007">0 0.0093567251</span></div>
+<div style="position:absolute;left:64.81px;top:446.51px" class="cls_007"><span class="cls_007">## D</span></div>
+<div style="position:absolute;left:114.75px;top:446.51px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:139.72px;top:446.51px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:164.69px;top:446.51px" class="cls_007"><span class="cls_007">0 803</span></div>
+<div style="position:absolute;left:214.63px;top:446.51px" class="cls_007"><span class="cls_007">1 0.0012437811</span></div>
+<div style="position:absolute;left:64.81px;top:460.91px" class="cls_007"><span class="cls_007">## E</span></div>
+<div style="position:absolute;left:114.75px;top:460.91px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:139.72px;top:460.91px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:164.69px;top:460.91px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:189.66px;top:460.91px" class="cls_007"><span class="cls_007">3 898 0.0033296337</span></div>
+<div style="position:absolute;left:64.81px;top:500.12px" class="cls_007"><span class="cls_007">rfMod.exclude.training.acc &lt;- round(1-sum(rfMod.exclude$confusion[, 'class.error']),3)</span></div>
+<div style="position:absolute;left:64.81px;top:514.52px" class="cls_007"><span class="cls_007">paste0("Accuracy on training: ",rfMod.exclude.training.acc)</span></div>
+</div>
+<div style="position:absolute;left:50%;margin-left:-420px;top:6655px;width:841px;height:595px;border-style:outset;overflow:hidden">
+<div style="position:absolute;left:0px;top:0px">
+<img src="a44ecc34-9efe-11ea-8b25-0cc47a792c0a_id_a44ecc34-9efe-11ea-8b25-0cc47a792c0a_files/background12.jpg" width=841 height=595></div>
+<div style="position:absolute;left:64.81px;top:36.80px" class="cls_007"><span class="cls_007">## [1] "Accuracy on training: 0.987"</span></div>
+<div style="position:absolute;left:64.81px;top:76.01px" class="cls_007"><span class="cls_007">rfMod.exclude.testing.acc &lt;- round(1-sum(rfMod.exclude$test$confusion[, 'class.error']),3)</span></div>
+<div style="position:absolute;left:64.81px;top:90.42px" class="cls_007"><span class="cls_007">paste0("Accuracy on testing: ",rfMod.exclude.testing.acc)</span></div>
+<div style="position:absolute;left:64.81px;top:129.63px" class="cls_007"><span class="cls_007">## [1] "Accuracy on testing: 0.984"</span></div>
+<div style="position:absolute;left:64.81px;top:168.84px" class="cls_007"><span class="cls_007">rfMod.pca.all</span></div>
+<div style="position:absolute;left:64.81px;top:208.05px" class="cls_007"><span class="cls_007">##</span></div>
+<div style="position:absolute;left:64.81px;top:222.45px" class="cls_007"><span class="cls_007">## Call:</span></div>
+<div style="position:absolute;left:64.81px;top:236.85px" class="cls_007"><span class="cls_007">##  randomForest(x = training.subSetTrain.pca.all, y = training.subSetTrain$classe,</span></div>
+<div style="position:absolute;left:620.40px;top:236.85px" class="cls_007"><span class="cls_007">xtest = training.subSetT</span></div>
+<div style="position:absolute;left:64.81px;top:251.26px" class="cls_007"><span class="cls_007">est.pca.all, ytest = training.subSetTest$classe,</span></div>
+<div style="position:absolute;left:401.91px;top:251.26px" class="cls_007"><span class="cls_007">ntree = ntree, proximity = TRUE, keep.forest = TRUE)</span></div>
+<div style="position:absolute;left:64.81px;top:265.66px" class="cls_007"><span class="cls_007">##</span></div>
+<div style="position:absolute;left:177.18px;top:265.66px" class="cls_007"><span class="cls_007">Type of random forest: classification</span></div>
+<div style="position:absolute;left:64.81px;top:280.06px" class="cls_007"><span class="cls_007">##</span></div>
+<div style="position:absolute;left:214.63px;top:280.06px" class="cls_007"><span class="cls_007">Number of trees: 200</span></div>
+<div style="position:absolute;left:64.81px;top:294.47px" class="cls_007"><span class="cls_007">## No. of variables tried at each split: 6</span></div>
+<div style="position:absolute;left:64.81px;top:308.87px" class="cls_007"><span class="cls_007">##</span></div>
+<div style="position:absolute;left:64.81px;top:323.28px" class="cls_007"><span class="cls_007">##</span></div>
+<div style="position:absolute;left:133.48px;top:323.28px" class="cls_007"><span class="cls_007">OOB estimate of  error rate: 2.13%</span></div>
+<div style="position:absolute;left:64.81px;top:337.68px" class="cls_007"><span class="cls_007">## Confusion matrix:</span></div>
+<div style="position:absolute;left:64.81px;top:352.08px" class="cls_007"><span class="cls_007">##</span></div>
+<div style="position:absolute;left:114.75px;top:352.08px" class="cls_007"><span class="cls_007">A    B    C    D    E class.error</span></div>
+<div style="position:absolute;left:64.81px;top:366.49px" class="cls_007"><span class="cls_007">## A 4169</span></div>
+<div style="position:absolute;left:145.96px;top:366.49px" class="cls_007"><span class="cls_007">5</span></div>
+<div style="position:absolute;left:177.18px;top:366.49px" class="cls_007"><span class="cls_007">1</span></div>
+<div style="position:absolute;left:208.39px;top:366.49px" class="cls_007"><span class="cls_007">9</span></div>
+<div style="position:absolute;left:239.60px;top:366.49px" class="cls_007"><span class="cls_007">1 0.003823178</span></div>
+<div style="position:absolute;left:64.81px;top:380.89px" class="cls_007"><span class="cls_007">## B</span></div>
+<div style="position:absolute;left:108.51px;top:380.89px" class="cls_007"><span class="cls_007">57 2761</span></div>
+<div style="position:absolute;left:170.93px;top:380.89px" class="cls_007"><span class="cls_007">27</span></div>
+<div style="position:absolute;left:208.39px;top:380.89px" class="cls_007"><span class="cls_007">2</span></div>
+<div style="position:absolute;left:239.60px;top:380.89px" class="cls_007"><span class="cls_007">1 0.030547753</span></div>
+<div style="position:absolute;left:64.81px;top:395.29px" class="cls_007"><span class="cls_007">## C</span></div>
+<div style="position:absolute;left:114.75px;top:395.29px" class="cls_007"><span class="cls_007">2</span></div>
+<div style="position:absolute;left:139.72px;top:395.29px" class="cls_007"><span class="cls_007">35 2505</span></div>
+<div style="position:absolute;left:202.15px;top:395.29px" class="cls_007"><span class="cls_007">18</span></div>
+<div style="position:absolute;left:239.60px;top:395.29px" class="cls_007"><span class="cls_007">7 0.024152707</span></div>
+<div style="position:absolute;left:64.81px;top:409.70px" class="cls_007"><span class="cls_007">## D</span></div>
+<div style="position:absolute;left:114.75px;top:409.70px" class="cls_007"><span class="cls_007">2</span></div>
+<div style="position:absolute;left:145.96px;top:409.70px" class="cls_007"><span class="cls_007">2</span></div>
+<div style="position:absolute;left:170.93px;top:409.70px" class="cls_007"><span class="cls_007">89 2311</span></div>
+<div style="position:absolute;left:239.60px;top:409.70px" class="cls_007"><span class="cls_007">8 0.041873964</span></div>
+<div style="position:absolute;left:64.81px;top:424.10px" class="cls_007"><span class="cls_007">## E</span></div>
+<div style="position:absolute;left:114.75px;top:424.10px" class="cls_007"><span class="cls_007">4</span></div>
+<div style="position:absolute;left:139.72px;top:424.10px" class="cls_007"><span class="cls_007">15</span></div>
+<div style="position:absolute;left:170.93px;top:424.10px" class="cls_007"><span class="cls_007">12</span></div>
+<div style="position:absolute;left:202.15px;top:424.10px" class="cls_007"><span class="cls_007">16 2659 0.017368810</span></div>
+<div style="position:absolute;left:64.81px;top:438.50px" class="cls_007"><span class="cls_007">##</span></div>
+<div style="position:absolute;left:183.42px;top:438.50px" class="cls_007"><span class="cls_007">Test set error rate: 1.96%</span></div>
+<div style="position:absolute;left:64.81px;top:452.91px" class="cls_007"><span class="cls_007">## Confusion matrix:</span></div>
+<div style="position:absolute;left:64.81px;top:467.31px" class="cls_007"><span class="cls_007">##</span></div>
+<div style="position:absolute;left:114.75px;top:467.31px" class="cls_007"><span class="cls_007">A   B   C   D   E class.error</span></div>
+<div style="position:absolute;left:64.81px;top:481.72px" class="cls_007"><span class="cls_007">## A 1389</span></div>
+<div style="position:absolute;left:139.72px;top:481.72px" class="cls_007"><span class="cls_007">1</span></div>
+<div style="position:absolute;left:164.69px;top:481.72px" class="cls_007"><span class="cls_007">1</span></div>
+<div style="position:absolute;left:189.66px;top:481.72px" class="cls_007"><span class="cls_007">3</span></div>
+<div style="position:absolute;left:214.63px;top:481.72px" class="cls_007"><span class="cls_007">1 0.004301075</span></div>
+<div style="position:absolute;left:64.81px;top:496.12px" class="cls_007"><span class="cls_007">## B</span></div>
+<div style="position:absolute;left:108.51px;top:496.12px" class="cls_007"><span class="cls_007">13 922  12</span></div>
+<div style="position:absolute;left:189.66px;top:496.12px" class="cls_007"><span class="cls_007">1</span></div>
+<div style="position:absolute;left:214.63px;top:496.12px" class="cls_007"><span class="cls_007">1 0.028451001</span></div>
+<div style="position:absolute;left:64.81px;top:510.52px" class="cls_007"><span class="cls_007">## C</span></div>
+<div style="position:absolute;left:114.75px;top:510.52px" class="cls_007"><span class="cls_007">1  15 833</span></div>
+<div style="position:absolute;left:189.66px;top:510.52px" class="cls_007"><span class="cls_007">5</span></div>
+<div style="position:absolute;left:214.63px;top:510.52px" class="cls_007"><span class="cls_007">1 0.025730994</span></div>
+<div style="position:absolute;left:64.81px;top:524.93px" class="cls_007"><span class="cls_007">## D</span></div>
+<div style="position:absolute;left:114.75px;top:524.93px" class="cls_007"><span class="cls_007">2</span></div>
+<div style="position:absolute;left:139.72px;top:524.93px" class="cls_007"><span class="cls_007">0  24 775</span></div>
+<div style="position:absolute;left:214.63px;top:524.93px" class="cls_007"><span class="cls_007">3 0.036069652</span></div>
+<div style="position:absolute;left:64.81px;top:539.33px" class="cls_007"><span class="cls_007">## E</span></div>
+<div style="position:absolute;left:114.75px;top:539.33px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:139.72px;top:539.33px" class="cls_007"><span class="cls_007">4</span></div>
+<div style="position:absolute;left:164.69px;top:539.33px" class="cls_007"><span class="cls_007">3</span></div>
+<div style="position:absolute;left:189.66px;top:539.33px" class="cls_007"><span class="cls_007">5 889 0.013318535</span></div>
+</div>
+<div style="position:absolute;left:50%;margin-left:-420px;top:7260px;width:841px;height:595px;border-style:outset;overflow:hidden">
+<div style="position:absolute;left:0px;top:0px">
+<img src="a44ecc34-9efe-11ea-8b25-0cc47a792c0a_id_a44ecc34-9efe-11ea-8b25-0cc47a792c0a_files/background13.jpg" width=841 height=595></div>
+<div style="position:absolute;left:64.81px;top:36.80px" class="cls_007"><span class="cls_007">rfMod.pca.all.training.acc &lt;- round(1-sum(rfMod.pca.all$confusion[, 'class.error']),3)</span></div>
+<div style="position:absolute;left:64.81px;top:51.21px" class="cls_007"><span class="cls_007">paste0("Accuracy on training: ",rfMod.pca.all.training.acc)</span></div>
+<div style="position:absolute;left:64.81px;top:90.42px" class="cls_007"><span class="cls_007">## [1] "Accuracy on training: 0.882"</span></div>
+<div style="position:absolute;left:64.81px;top:129.63px" class="cls_007"><span class="cls_007">rfMod.pca.all.testing.acc &lt;- round(1-sum(rfMod.pca.all$test$confusion[, 'class.error']),3)</span></div>
+<div style="position:absolute;left:64.81px;top:144.03px" class="cls_007"><span class="cls_007">paste0("Accuracy on testing: ",rfMod.pca.all.testing.acc)</span></div>
+<div style="position:absolute;left:64.81px;top:183.24px" class="cls_007"><span class="cls_007">## [1] "Accuracy on testing: 0.892"</span></div>
+<div style="position:absolute;left:64.81px;top:222.45px" class="cls_007"><span class="cls_007">rfMod.pca.subset</span></div>
+</div>
+<div style="position:absolute;left:50%;margin-left:-420px;top:7865px;width:841px;height:595px;border-style:outset;overflow:hidden">
+<div style="position:absolute;left:0px;top:0px">
+<img src="a44ecc34-9efe-11ea-8b25-0cc47a792c0a_id_a44ecc34-9efe-11ea-8b25-0cc47a792c0a_files/background14.jpg" width=841 height=595></div>
+<div style="position:absolute;left:64.81px;top:36.80px" class="cls_007"><span class="cls_007">##</span></div>
+<div style="position:absolute;left:64.81px;top:51.21px" class="cls_007"><span class="cls_007">## Call:</span></div>
+<div style="position:absolute;left:64.81px;top:65.61px" class="cls_007"><span class="cls_007">##  randomForest(x = training.subSetTrain.pca.subset, y = training.subSetTrain$classe,</span></div>
+<div style="position:absolute;left:639.13px;top:65.61px" class="cls_007"><span class="cls_007">xtest = training.subS</span></div>
+<div style="position:absolute;left:64.81px;top:80.01px" class="cls_007"><span class="cls_007">etTest.pca.subset, ytest = training.subSetTest$classe,</span></div>
+<div style="position:absolute;left:439.37px;top:80.01px" class="cls_007"><span class="cls_007">ntree = ntree, proximity = TRUE, keep.forest = TRUE)</span></div>
+<div style="position:absolute;left:64.81px;top:94.42px" class="cls_007"><span class="cls_007">##</span></div>
+<div style="position:absolute;left:177.18px;top:94.42px" class="cls_007"><span class="cls_007">Type of random forest: classification</span></div>
+<div style="position:absolute;left:64.81px;top:108.82px" class="cls_007"><span class="cls_007">##</span></div>
+<div style="position:absolute;left:214.63px;top:108.82px" class="cls_007"><span class="cls_007">Number of trees: 200</span></div>
+<div style="position:absolute;left:64.81px;top:123.22px" class="cls_007"><span class="cls_007">## No. of variables tried at each split: 6</span></div>
+<div style="position:absolute;left:64.81px;top:137.63px" class="cls_007"><span class="cls_007">##</span></div>
+<div style="position:absolute;left:64.81px;top:152.03px" class="cls_007"><span class="cls_007">##</span></div>
+<div style="position:absolute;left:133.48px;top:152.03px" class="cls_007"><span class="cls_007">OOB estimate of  error rate: 2.34%</span></div>
+<div style="position:absolute;left:64.81px;top:166.44px" class="cls_007"><span class="cls_007">## Confusion matrix:</span></div>
+<div style="position:absolute;left:64.81px;top:180.84px" class="cls_007"><span class="cls_007">##</span></div>
+<div style="position:absolute;left:114.75px;top:180.84px" class="cls_007"><span class="cls_007">A    B    C    D    E class.error</span></div>
+<div style="position:absolute;left:64.81px;top:195.24px" class="cls_007"><span class="cls_007">## A 4159</span></div>
+<div style="position:absolute;left:145.96px;top:195.24px" class="cls_007"><span class="cls_007">9</span></div>
+<div style="position:absolute;left:177.18px;top:195.24px" class="cls_007"><span class="cls_007">6</span></div>
+<div style="position:absolute;left:202.15px;top:195.24px" class="cls_007"><span class="cls_007">10</span></div>
+<div style="position:absolute;left:239.60px;top:195.24px" class="cls_007"><span class="cls_007">1 0.006212664</span></div>
+<div style="position:absolute;left:64.81px;top:209.65px" class="cls_007"><span class="cls_007">## B</span></div>
+<div style="position:absolute;left:108.51px;top:209.65px" class="cls_007"><span class="cls_007">60 2758</span></div>
+<div style="position:absolute;left:170.93px;top:209.65px" class="cls_007"><span class="cls_007">26</span></div>
+<div style="position:absolute;left:208.39px;top:209.65px" class="cls_007"><span class="cls_007">3</span></div>
+<div style="position:absolute;left:239.60px;top:209.65px" class="cls_007"><span class="cls_007">1 0.031601124</span></div>
+<div style="position:absolute;left:64.81px;top:224.05px" class="cls_007"><span class="cls_007">## C</span></div>
+<div style="position:absolute;left:114.75px;top:224.05px" class="cls_007"><span class="cls_007">7</span></div>
+<div style="position:absolute;left:139.72px;top:224.05px" class="cls_007"><span class="cls_007">31 2507</span></div>
+<div style="position:absolute;left:202.15px;top:224.05px" class="cls_007"><span class="cls_007">19</span></div>
+<div style="position:absolute;left:239.60px;top:224.05px" class="cls_007"><span class="cls_007">3 0.023373588</span></div>
+<div style="position:absolute;left:64.81px;top:238.45px" class="cls_007"><span class="cls_007">## D</span></div>
+<div style="position:absolute;left:114.75px;top:238.45px" class="cls_007"><span class="cls_007">8</span></div>
+<div style="position:absolute;left:145.96px;top:238.45px" class="cls_007"><span class="cls_007">1</span></div>
+<div style="position:absolute;left:170.93px;top:238.45px" class="cls_007"><span class="cls_007">97 2302</span></div>
+<div style="position:absolute;left:239.60px;top:238.45px" class="cls_007"><span class="cls_007">4 0.045605307</span></div>
+<div style="position:absolute;left:64.81px;top:252.86px" class="cls_007"><span class="cls_007">## E</span></div>
+<div style="position:absolute;left:114.75px;top:252.86px" class="cls_007"><span class="cls_007">7</span></div>
+<div style="position:absolute;left:139.72px;top:252.86px" class="cls_007"><span class="cls_007">16</span></div>
+<div style="position:absolute;left:170.93px;top:252.86px" class="cls_007"><span class="cls_007">20</span></div>
+<div style="position:absolute;left:202.15px;top:252.86px" class="cls_007"><span class="cls_007">15 2648 0.021433851</span></div>
+<div style="position:absolute;left:64.81px;top:267.26px" class="cls_007"><span class="cls_007">##</span></div>
+<div style="position:absolute;left:183.42px;top:267.26px" class="cls_007"><span class="cls_007">Test set error rate: 2.28%</span></div>
+<div style="position:absolute;left:64.81px;top:281.66px" class="cls_007"><span class="cls_007">## Confusion matrix:</span></div>
+<div style="position:absolute;left:64.81px;top:296.07px" class="cls_007"><span class="cls_007">##</span></div>
+<div style="position:absolute;left:114.75px;top:296.07px" class="cls_007"><span class="cls_007">A   B   C   D   E class.error</span></div>
+<div style="position:absolute;left:64.81px;top:310.47px" class="cls_007"><span class="cls_007">## A 1382</span></div>
+<div style="position:absolute;left:139.72px;top:310.47px" class="cls_007"><span class="cls_007">5</span></div>
+<div style="position:absolute;left:164.69px;top:310.47px" class="cls_007"><span class="cls_007">5</span></div>
+<div style="position:absolute;left:189.66px;top:310.47px" class="cls_007"><span class="cls_007">2</span></div>
+<div style="position:absolute;left:214.63px;top:310.47px" class="cls_007"><span class="cls_007">1 0.009318996</span></div>
+<div style="position:absolute;left:64.81px;top:324.88px" class="cls_007"><span class="cls_007">## B</span></div>
+<div style="position:absolute;left:108.51px;top:324.88px" class="cls_007"><span class="cls_007">13 924  11</span></div>
+<div style="position:absolute;left:189.66px;top:324.88px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:214.63px;top:324.88px" class="cls_007"><span class="cls_007">1 0.026343519</span></div>
+<div style="position:absolute;left:64.81px;top:339.28px" class="cls_007"><span class="cls_007">## C</span></div>
+<div style="position:absolute;left:114.75px;top:339.28px" class="cls_007"><span class="cls_007">2  19 825</span></div>
+<div style="position:absolute;left:189.66px;top:339.28px" class="cls_007"><span class="cls_007">8</span></div>
+<div style="position:absolute;left:214.63px;top:339.28px" class="cls_007"><span class="cls_007">1 0.035087719</span></div>
+<div style="position:absolute;left:64.81px;top:353.68px" class="cls_007"><span class="cls_007">## D</span></div>
+<div style="position:absolute;left:114.75px;top:353.68px" class="cls_007"><span class="cls_007">4</span></div>
+<div style="position:absolute;left:139.72px;top:353.68px" class="cls_007"><span class="cls_007">0  26 770</span></div>
+<div style="position:absolute;left:214.63px;top:353.68px" class="cls_007"><span class="cls_007">4 0.042288557</span></div>
+<div style="position:absolute;left:64.81px;top:368.09px" class="cls_007"><span class="cls_007">## E</span></div>
+<div style="position:absolute;left:114.75px;top:368.09px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:139.72px;top:368.09px" class="cls_007"><span class="cls_007">3</span></div>
+<div style="position:absolute;left:164.69px;top:368.09px" class="cls_007"><span class="cls_007">0</span></div>
+<div style="position:absolute;left:189.66px;top:368.09px" class="cls_007"><span class="cls_007">7 891 0.011098779</span></div>
+<div style="position:absolute;left:64.81px;top:407.30px" class="cls_007"><span class="cls_007">rfMod.pca.subset.training.acc &lt;- round(1-sum(rfMod.pca.subset$confusion[, 'class.error']),3)</span></div>
+<div style="position:absolute;left:64.81px;top:421.70px" class="cls_007"><span class="cls_007">paste0("Accuracy on training: ",rfMod.pca.subset.training.acc)</span></div>
+<div style="position:absolute;left:64.81px;top:460.91px" class="cls_007"><span class="cls_007">## [1] "Accuracy on training: 0.872"</span></div>
+<div style="position:absolute;left:64.81px;top:500.12px" class="cls_007"><span class="cls_007">rfMod.pca.subset.testing.acc &lt;- round(1-sum(rfMod.pca.subset$test$confusion[, 'class.error']),3)</span></div>
+<div style="position:absolute;left:64.81px;top:514.52px" class="cls_007"><span class="cls_007">paste0("Accuracy on testing: ",rfMod.pca.subset.testing.acc)</span></div>
+</div>
+<div style="position:absolute;left:50%;margin-left:-420px;top:8470px;width:841px;height:595px;border-style:outset;overflow:hidden">
+<div style="position:absolute;left:0px;top:0px">
+<img src="a44ecc34-9efe-11ea-8b25-0cc47a792c0a_id_a44ecc34-9efe-11ea-8b25-0cc47a792c0a_files/background15.jpg" width=841 height=595></div>
+<div style="position:absolute;left:64.81px;top:36.80px" class="cls_007"><span class="cls_007">## [1] "Accuracy on testing: 0.876"</span></div>
+<div style="position:absolute;left:56.41px;top:72.81px" class="cls_005"><span class="cls_005">Conclusion</span></div>
+<div style="position:absolute;left:56.41px;top:110.42px" class="cls_006"><span class="cls_006">This concludes that nor PCA doesn’t have a positive of the accuracy (or the process time for that matter) The </span><span class="cls_010">rfMod.exclude</span><span class="cls_006"> perform’s slightly</span></div>
+<div style="position:absolute;left:56.41px;top:126.42px" class="cls_006"><span class="cls_006">better then the ‘rfMod.cleaned’</span></div>
+<div style="position:absolute;left:56.41px;top:150.43px" class="cls_006"><span class="cls_006">We’ll stick with the </span><span class="cls_010">rfMod.exclude</span><span class="cls_006"> model as the best model to use for predicting the test set. Because with an accuracy of 98.7% and an</span></div>
+<div style="position:absolute;left:56.41px;top:166.44px" class="cls_006"><span class="cls_006">estimated OOB error rate of 0.23% this is the best model.</span></div>
+<div style="position:absolute;left:56.41px;top:190.44px" class="cls_006"><span class="cls_006">Before doing the final prediction we will examine the chosen model more in depth using some plots</span></div>
+<div style="position:absolute;left:64.81px;top:222.45px" class="cls_007"><span class="cls_007">par(mfrow=c(1,2))</span></div>
+<div style="position:absolute;left:64.81px;top:236.85px" class="cls_007"><span class="cls_007">varImpPlot(rfMod.exclude, cex=0.7, pch=16, main='Variable Importance Plot: rfMod.exclude')</span></div>
+<div style="position:absolute;left:64.81px;top:251.26px" class="cls_007"><span class="cls_007">plot(rfMod.exclude, , cex=0.7, main='Error vs No. of trees plot')</span></div>
+</div>
+<div style="position:absolute;left:50%;margin-left:-420px;top:9075px;width:841px;height:595px;border-style:outset;overflow:hidden">
+<div style="position:absolute;left:0px;top:0px">
+<img src="a44ecc34-9efe-11ea-8b25-0cc47a792c0a_id_a44ecc34-9efe-11ea-8b25-0cc47a792c0a_files/background16.jpg" width=841 height=595></div>
+<div style="position:absolute;left:64.81px;top:408.90px" class="cls_007"><span class="cls_007">par(mfrow=c(1,1))</span></div>
+<div style="position:absolute;left:56.41px;top:440.10px" class="cls_006"><span class="cls_006">To really look in depth at the distances between predictions we can use MDSplot and cluster predictiosn and results</span></div>
+<div style="position:absolute;left:64.81px;top:472.11px" class="cls_007"><span class="cls_007">start &lt;- proc.time()</span></div>
+<div style="position:absolute;left:64.81px;top:500.92px" class="cls_009"><span class="cls_009">library</span><span class="cls_007">(RColorBrewer)</span></div>
+<div style="position:absolute;left:64.81px;top:515.32px" class="cls_007"><span class="cls_007">palette &lt;- brewer.pal(length(classeLevels), "Set1")</span></div>
+<div style="position:absolute;left:64.81px;top:529.73px" class="cls_007"><span class="cls_007">rfMod.mds &lt;- MDSplot(rfMod.exclude, as.factor(classeLevels), k=2, pch=20, palette=palette)</span></div>
+</div>
+<div style="position:absolute;left:50%;margin-left:-420px;top:9680px;width:841px;height:595px;border-style:outset;overflow:hidden">
+<div style="position:absolute;left:0px;top:0px">
+<img src="a44ecc34-9efe-11ea-8b25-0cc47a792c0a_id_a44ecc34-9efe-11ea-8b25-0cc47a792c0a_files/background17.jpg" width=841 height=595></div>
+</div>
+<div style="position:absolute;left:50%;margin-left:-420px;top:10285px;width:841px;height:595px;border-style:outset;overflow:hidden">
+<div style="position:absolute;left:0px;top:0px">
+<img src="a44ecc34-9efe-11ea-8b25-0cc47a792c0a_id_a44ecc34-9efe-11ea-8b25-0cc47a792c0a_files/background18.jpg" width=841 height=595></div>
+<div style="position:absolute;left:64.81px;top:36.80px" class="cls_009"><span class="cls_009">library</span><span class="cls_007">(cluster)</span></div>
+<div style="position:absolute;left:64.81px;top:51.21px" class="cls_007"><span class="cls_007">rfMod.pam &lt;- pam(1 - rfMod.exclude$proximity, k=length(classeLevels), diss=TRUE)</span></div>
+<div style="position:absolute;left:64.81px;top:80.01px" class="cls_007"><span class="cls_007">plot(</span></div>
+<div style="position:absolute;left:77.29px;top:94.42px" class="cls_007"><span class="cls_007">rfMod.mds$points[, 1],</span></div>
+<div style="position:absolute;left:77.29px;top:108.82px" class="cls_007"><span class="cls_007">rfMod.mds$points[, 2],</span></div>
+<div style="position:absolute;left:77.29px;top:123.22px" class="cls_007"><span class="cls_007">pch=rfMod.pam$clustering+14,</span></div>
+<div style="position:absolute;left:77.29px;top:137.63px" class="cls_007"><span class="cls_007">col=alpha(palette[as.numeric(training.subSetTrain$classe)],0.5),</span></div>
+<div style="position:absolute;left:77.29px;top:152.03px" class="cls_007"><span class="cls_007">bg=alpha(palette[as.numeric(training.subSetTrain$classe)],0.2),</span></div>
+<div style="position:absolute;left:77.29px;top:166.43px" class="cls_007"><span class="cls_007">cex=0.5,</span></div>
+<div style="position:absolute;left:77.29px;top:180.84px" class="cls_007"><span class="cls_007">xlab="x", ylab="y")</span></div>
+<div style="position:absolute;left:64.81px;top:195.24px" class="cls_007"><span class="cls_007">legend("bottomleft", legend=unique(rfMod.pam$clustering), pch=seq(15,14+length(classeLevels)), title = "PAM clust</span></div>
+<div style="position:absolute;left:64.81px;top:209.65px" class="cls_007"><span class="cls_007">er")</span></div>
+<div style="position:absolute;left:77.29px;top:224.05px" class="cls_007"><span class="cls_007">legend("topleft", legend=classeLevels, pch = 16, col=palette, title = "Classification")</span></div>
+</div>
+<div style="position:absolute;left:50%;margin-left:-420px;top:10890px;width:841px;height:595px;border-style:outset;overflow:hidden">
+<div style="position:absolute;left:0px;top:0px">
+<img src="a44ecc34-9efe-11ea-8b25-0cc47a792c0a_id_a44ecc34-9efe-11ea-8b25-0cc47a792c0a_files/background19.jpg" width=841 height=595></div>
+<div style="position:absolute;left:64.81px;top:408.90px" class="cls_007"><span class="cls_007">proc.time() - start</span></div>
+<div style="position:absolute;left:64.81px;top:448.11px" class="cls_007"><span class="cls_007">##</span></div>
+<div style="position:absolute;left:108.51px;top:448.11px" class="cls_007"><span class="cls_007">user   system  elapsed</span></div>
+<div style="position:absolute;left:64.81px;top:462.51px" class="cls_007"><span class="cls_007">## 4524.813</span></div>
+<div style="position:absolute;left:152.21px;top:462.51px" class="cls_007"><span class="cls_007">39.624</span></div>
+<div style="position:absolute;left:195.90px;top:462.51px" class="cls_007"><span class="cls_007">4588.622</span></div>
+<div style="position:absolute;left:56.41px;top:498.52px" class="cls_011"><span class="cls_011">Test results</span></div>
+</div>
+<div style="position:absolute;left:50%;margin-left:-420px;top:11495px;width:841px;height:595px;border-style:outset;overflow:hidden">
+<div style="position:absolute;left:0px;top:0px">
+<img src="a44ecc34-9efe-11ea-8b25-0cc47a792c0a_id_a44ecc34-9efe-11ea-8b25-0cc47a792c0a_files/background20.jpg" width=841 height=595></div>
+<div style="position:absolute;left:56.41px;top:28.80px" class="cls_006"><span class="cls_006">Although we’ve chosen the </span><span class="cls_010">rfMod.exclude</span><span class="cls_006"> it’s still nice to see what the other 3 models would predict on the final test set. Let’s look at</span></div>
+<div style="position:absolute;left:56.41px;top:44.80px" class="cls_006"><span class="cls_006">predictions for all models on the final test set.</span></div>
+<div style="position:absolute;left:64.81px;top:76.81px" class="cls_007"><span class="cls_007">predictions &lt;- t(cbind(</span></div>
+<div style="position:absolute;left:89.78px;top:91.22px" class="cls_007"><span class="cls_007">exclude=as.data.frame(predict(rfMod.exclude, testing.cleaned[, -excludeColumns]), optional=TRUE),</span></div>
+<div style="position:absolute;left:89.78px;top:105.62px" class="cls_007"><span class="cls_007">cleaned=as.data.frame(predict(rfMod.cleaned, testing.cleaned), optional=TRUE),</span></div>
+<div style="position:absolute;left:89.78px;top:120.02px" class="cls_007"><span class="cls_007">pcaAll=as.data.frame(predict(rfMod.pca.all, testing.pca.all), optional=TRUE),</span></div>
+<div style="position:absolute;left:89.78px;top:134.43px" class="cls_007"><span class="cls_007">pcaExclude=as.data.frame(predict(rfMod.pca.subset, testing.pca.subset), optional=TRUE)</span></div>
+<div style="position:absolute;left:64.81px;top:148.83px" class="cls_007"><span class="cls_007">))</span></div>
+<div style="position:absolute;left:64.81px;top:163.23px" class="cls_007"><span class="cls_007">predictions</span></div>
+<div style="position:absolute;left:64.81px;top:202.44px" class="cls_007"><span class="cls_007">##</span></div>
+<div style="position:absolute;left:152.21px;top:202.44px" class="cls_007"><span class="cls_007">1</span></div>
+<div style="position:absolute;left:177.18px;top:202.44px" class="cls_007"><span class="cls_007">2</span></div>
+<div style="position:absolute;left:202.15px;top:202.44px" class="cls_007"><span class="cls_007">3</span></div>
+<div style="position:absolute;left:227.12px;top:202.44px" class="cls_007"><span class="cls_007">4</span></div>
+<div style="position:absolute;left:252.09px;top:202.44px" class="cls_007"><span class="cls_007">5</span></div>
+<div style="position:absolute;left:277.06px;top:202.44px" class="cls_007"><span class="cls_007">6</span></div>
+<div style="position:absolute;left:302.03px;top:202.44px" class="cls_007"><span class="cls_007">7</span></div>
+<div style="position:absolute;left:327.00px;top:202.44px" class="cls_007"><span class="cls_007">8</span></div>
+<div style="position:absolute;left:351.97px;top:202.44px" class="cls_007"><span class="cls_007">9</span></div>
+<div style="position:absolute;left:376.94px;top:202.44px" class="cls_007"><span class="cls_007">10  11  12  13  14  15  16  17  18  19  20</span></div>
+<div style="position:absolute;left:64.81px;top:216.85px" class="cls_007"><span class="cls_007">## exclude</span></div>
+<div style="position:absolute;left:152.21px;top:216.85px" class="cls_007"><span class="cls_007">"B" "A" "B" "A" "A" "E" "D" "B" "A" "A" "B" "C" "B" "A" "E" "E" "A" "B" "B" "B"</span></div>
+<div style="position:absolute;left:64.81px;top:231.25px" class="cls_007"><span class="cls_007">## cleaned</span></div>
+<div style="position:absolute;left:152.21px;top:231.25px" class="cls_007"><span class="cls_007">"B" "A" "B" "A" "A" "E" "D" "B" "A" "A" "B" "C" "B" "A" "E" "E" "A" "B" "B" "B"</span></div>
+<div style="position:absolute;left:64.81px;top:245.66px" class="cls_007"><span class="cls_007">## pcaAll</span></div>
+<div style="position:absolute;left:152.21px;top:245.66px" class="cls_007"><span class="cls_007">"B" "A" "C" "A" "A" "E" "D" "B" "A" "A" "B" "C" "B" "A" "E" "E" "A" "B" "B" "B"</span></div>
+<div style="position:absolute;left:64.81px;top:260.06px" class="cls_007"><span class="cls_007">## pcaExclude "B" "A" "C" "A" "A" "E" "D" "B" "A" "A" "B" "C" "B" "A" "E" "E" "A" "B" "B" "B"</span></div>
+<div style="position:absolute;left:56.41px;top:291.27px" class="cls_006"><span class="cls_006">The predictions don’t really change a lot with each model, but since we have most faith in the </span><span class="cls_010">rfMod.exclude</span><span class="cls_006">, we’ll keep that as final answer.</span></div>
+</div>
+
+</body>
+</html>
