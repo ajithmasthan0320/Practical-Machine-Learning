@@ -26,9 +26,9 @@ And make cylinders a factor as well (since it is not continious)
 
 
 ```r
-training.raw <- read.csv("pml-training.csv")
-testing.raw <- read.csv("pml-testing.csv")
-```
+path<-getwd()
+training.raw <- read.csv(paste0(path,"/pml-training.csv"))
+testing.raw <- read.csv(paste0(path,"/pml-testing.csv"))```
 
 ## Exploratory data analyses 
 
@@ -78,7 +78,7 @@ testing.cleaned02 <- testing.cleaned01[,-c(1, removeColumns )]
 Then convert all factors to integers
 
 ```r
-classeLevels <- levels(training.cleaned02$classe)
+classeLevels <- levels(as.factor(training.cleaned02$classe))
 training.cleaned03 <- data.frame(data.matrix(training.cleaned02))
 training.cleaned03$classe <- factor(training.cleaned03$classe, labels=classeLevels)
 testing.cleaned03 <- data.frame(data.matrix(testing.cleaned02))
